@@ -28,7 +28,7 @@ services:
     ports:
       - 6881:6881/tcp
       - 6881:6881/udp
-      - 8080:8080
+      - 8112:8112
       - 58846:58846
     volumes:
       - nfsdeluge:/home/deluge/.config/deluge

@@ -14,4 +14,4 @@ WORKDIR /home/deluge
 ENTRYPOINT ["deluged", "-d"]
 
 
-EXPOSE 6881/tcp 6881/udp 8080 58846
+EXPOSE 6881/tcp 6881/udp 8112 58846
