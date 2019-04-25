@@ -1,0 +1,36 @@
+version: "2"
+
+volumes:
+  nfsdeluge:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=10.0.0.100,rw
+      device: ":/mnt/barracuda/nfsdeluge"
+  nfspeliculas:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=10.0.0.100,rw
+      device: ":/mnt/wdblu0/peliculas"
+  nfsseries:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=10.0.0.100,rw
+      device: ":/mnt/wdblu0/series"
+
+services:
+  deluge:
+    build: ./
+    container_name: deluge
+    restart: unless-stopped
+    ports:
+      - 6881:6881/tcp
+      - 6881:6881/udp
+      - 8080:8080
+      - 58846:58846
+    volumes:
+      - nfsdeluge:/home/deluge/.config/deluge
+      - nfspeliculas:/mnt/peliculas
+      - nfsseries:/mnt/series
