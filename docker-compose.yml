@@ -5,20 +5,20 @@ volumes:
     driver: local
     driver_opts:
       type: nfs
-      o: addr=10.0.0.100,rw
+      o: addr=10.0.0.100,rw,nfsvers=4,async
       device: ":/mnt/barracuda/nfsdeluge"
   nfspeliculas:
     driver: local
     driver_opts:
       type: nfs
-      o: addr=10.0.0.100,rw
+      o: addr=10.0.0.100,rw,nfsvers=4,async
       device: ":/mnt/wdblu0/peliculas"
   nfsseries:
     driver: local
     driver_opts:
       type: nfs
-      o: addr=10.0.0.100,rw
-      device: ":/mnt/wdblu0/series"
+      o: addr=10.0.0.100,rw,nfsvers=4,async
+      device: ":/mnt/wdblu1/series"
 
 services:
   deluge:
